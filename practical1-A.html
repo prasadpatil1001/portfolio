@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Prasad Gawande | Developer Portfolio</title>
+    <meta name="description"
+        content="Prasad Gawande:Full-Stack Developer & UI/UX Designer. B.Tech student, Pimpri Chinchwad University." />
+
+    <style>
+        :root {
+            --bg: #0f1827;
+            --card: #0b1220;
+            --muted: #9aa4b2;
+            --accent: #4f46e5;
+            --glass: rgba(255, 255, 255, 0.04);
+            --radius: 12px;
+            color-scheme: dark;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background: linear-gradient(180deg, #071024 0%, #071722 60%);
+            color: #e6eef8;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.45;
+        }
+
+        /* container */
+        .container {
+            max-width: 1100px;
+            margin: 32px auto;
+            padding: 24px;
+        }
+
+        /* nav */
+        header.nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 0;
+        }
+
+        .logo {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+        }
+
+        .logo .mark {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent), #06b6d4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 16px;
+            list-style: none;
+            padding: 0;
+            margin: 0
+        }
+
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px
+        }
+
+        nav a:hover {
+            color: #fff
+        }
+
+        /* hero */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 28px;
+            align-items: center;
+            margin-top: 28px;
+        }
+
+        .hero-left h1 {
+            font-size: 36px;
+            margin: 0 0 6px 0;
+            letter-spacing: 0.4px;
+        }
+
+        .title {
+            color: var(--muted);
+            margin-bottom: 16px
+        }
+
+        .hero-left p {
+            color: var(--muted);
+            max-width: 70ch
+        }
+
+        .cta {
+            margin-top: 18px;
+            display: flex;
+            gap: 12px
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border-radius: 10px;
+            border: 0;
+            cursor: pointer;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent), #06b6d4);
+            color: #fff;
+            box-shadow: 0 6px 18px rgba(79, 70, 229, 0.14);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: var(--muted);
+            padding: 9px 14px;
+            border-radius: 10px;
+        }
+
+        /* hero right card */
+        .profile-card {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #1e293b, #0f1724);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 26px;
+            color: #fff;
+        }
+
+        .stat-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 6px
+        }
+
+        .stat {
+            background: var(--glass);
+            padding: 10px;
+            border-radius: 10px;
+            min-width: 80px
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 18px
+        }
+
+        .profile-card p {
+            color: var(--muted);
+            margin: 8px 0 0 0;
+            font-size: 14px
+        }
+
+        /* sections */
+        section {
+            margin-top: 34px;
+            background: transparent;
+            padding: 16px;
+            border-radius: 12px
+        }
+
+        .section-title {
+            font-size: 18px;
+            margin-bottom: 12px
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 240px;
+            gap: 16px;
+            align-items: start
+        }
+
+        .about-card {
+            background: var(--card);
+            padding: 16px;
+            border-radius: 12px
+        }
+
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 14px
+        }
+
+        .contact-item {
+            background: var(--glass);
+            padding: 10px;
+            border-radius: 10px
+        }
+
+        /* skills/projects */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px
+        }
+
+        .skill {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 8px 10px;
+            border-radius: 10px;
+            font-weight: 600;
+            color: var(--muted)
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 14px
+        }
+
+        .project {
+            background: var(--card);
+            padding: 14px;
+            border-radius: 12px
+        }
+
+        /* contact form */
+        .contact-form {
+            display: grid;
+            gap: 10px
+        }
+
+        .input,
+        textarea {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 10px;
+            border-radius: 8px;
+            color: #e6eef8;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical
+        }
+
+        footer {
+            margin-top: 36px;
+            color: var(--muted);
+            font-size: 13px;
+            text-align: center;
+            padding-bottom: 40px
+        }
+
+        @media (max-width:880px) {
+            .hero {
+                grid-template-columns: 1fr
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="nav">
+            <div class="logo">
+                <div class="mark">PM</div>
+                <div>
+                    <div style="font-weight:800">Prasad Gawande</div>
+                    <div style="font-size:12px;color:var(--muted);margin-top:3px">Full-Stack Developer & UI/UX Designer
+                    </div>
+                </div>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="home" class="hero">
+                <div class="hero-left">
+                    <h1>Prasad Gawande </h1>
+                    <div class="title">Full-Stack Developer & UI/UX Designer</div>
+                    <p>Creative computer science student passionate about building innovative web applications and
+                        crafting exceptional user experiences. Currently pursuing B.Tech in Computer Science at Pimpri
+                        Chinchwad University with expertise in modern development frameworks.</p>
+
+                    <div class="cta">
+                        <button class="btn" onclick="scrollToSection('projects')">Explore Work</button>
+                        <a class="btn-ghost" href="#contact">Let's Connect</a>
+                    </div>
+                </div>
+
+                <aside class="profile-card" aria-hidden="false">
+                    <div class="avatar">PM</div>
+                    <div style="font-weight:700;font-size:16px">Prasad Gawande</div>
+                    <p class="muted">B.Tech — Pimpri Chinchwad University</p>
+
+                    <div class="stat-row">
+                        <div class="stat">
+                            <strong>7</strong>
+                            <small style="color:var(--muted)">CGPA</small>
+                        </div>
+                        <div class="stat">
+                            <strong>3+</strong>
+                            <small style="color:var(--muted)">Projects</small>
+                        </div>
+                        <div class="stat">
+                            <strong>6+</strong>
+                            <small style="color:var(--muted)">Technologies</small>
+                        </div>
+                    </div>
+                    <p style="font-size:13px;color:var(--muted);margin-top:10px">Currently building responsive apps &
+                        learning modern backend tools.</p>
+                </aside>
+            </section>
+
+            <section id="about" aria-labelledby="about-title">
+                <div class="section-title" id="about-title">About Me</div>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <p>Hey there! I'm Prasad Gawande, a dedicated computer science student with a passion for
+                            creating digital solutions that make a difference. My journey in tech began with curiosity
+                            about how websites work, and it has evolved into a deep love for both front-end and back-end
+                            development.</p>
+                        <p style="color:var(--muted)">When I'm not coding, you'll find me exploring new design trends,
+                            contributing to open-source projects, or learning about emerging technologies.</p>
+                    </div>
+
+                    <div class="about-card">
+                        <div style="font-weight:700;margin-bottom:8px">Quick facts</div>
+                        <div style="color:var(--muted);font-size:14px">
+                            <div><strong>Degree:</strong> B.Tech in Computer Science</div>
+                            <div><strong>University:</strong> Pimpri Chinchwad University</div>
+                            <div><strong>CGPA:</strong> 7</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills">
+                <div class="section-title">Technical Skills</div>
+                <div class="skills" aria-hidden="false">
+                    <!-- placeholder skills — edit as needed -->
+                    <div class="skill">HTML</div>
+                    <div class="skill">CSS</div>
+                    <div class="skill">JavaScript</div>
+                    <div class="skill">React</div>
+                    <div class="skill">Node.js</div>
+                    <div class="skill">Git</div>
+                </div>
+            </section>
+
+            <section id="projects">
+                <div class="section-title">Featured Projects</div>
+                <div class="projects-grid">
+                    <div class="project">
+                        <h4>Project One</h4>
+                        <p style="color:var(--muted)">Short description — replace with your real project details and
+                            links.</p>
+                        <div style="margin-top:10px"><a href="#"
+                                style="color:var(--accent);text-decoration:none;font-weight:700">View →</a></div>
+                    </div>
+
+                    <div class="project">
+                        <h4>Project Two</h4>
+                        <p style="color:var(--muted)">Short description — replace with your real project details and
+                            links.</p>
+                        <div style="margin-top:10px"><a href="#"
+                                style="color:var(--accent);text-decoration:none;font-weight:700">View →</a></div>
+                    </div>
+
+                    <div class="project">
+                        <h4>Project Three</h4>
+                        <p style="color:var(--muted)">Short description — replace with your real project details and
+                            links.</p>
+                        <div style="margin-top:10px"><a href="#"
+                                style="color:var(--accent);text-decoration:none;font-weight:700">View →</a></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <div class="section-title">Get In Touch</div>
+                <div style="display:grid;grid-template-columns:1fr 360px;gap:16px">
+                    <div class="about-card">
+                        <div class="contact-list">
+                            <div class="contact-item"><strong>Email</strong>
+                                <div style="color:var(--muted)">prasad.gawande23@pcu.edu.in</div>
+                            </div>
+                            <div class="contact-item"><strong>Phone</strong>
+                                <div style="color:var(--muted)">+91 935983386</div>
+                            </div>
+                            <div class="contact-item"><strong>LinkedIn</strong>
+                                <div style="color:var(--muted)"><a
+                                        href="https://www.linkedin.com/in/prasad-patil-72179a291" target="_blank"
+                                        style="color:var(--muted)">/in/prasad-gawande-794932289</a></div>
+                            </div>
+                            <div class="contact-item"><strong>GitHub</strong>
+                                <div style="color:var(--muted)"><a href="https://github.com/prasadpatil1001"
+                                        target="_blank" style="color:var(--muted)">github.com/prasadpatil1001</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-card">
+                        <form id="contactForm" class="contact-form" onsubmit="handleSubmit(event)">
+                            <input class="input" name="name" placeholder="Your name" required />
+                            <input class="input" name="email" placeholder="Your email" type="email" required />
+                            <textarea name="message" placeholder="Message" required></textarea>
+                            <div style="display:flex;justify-content:flex-end">
+                                <button class="btn" type="submit">Send Message</button>
+                            </div>
+                        </form>
+                        <div id="formMsg" style="display:none;margin-top:10px;color:var(--muted);font-size:14px"></div>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                ©️ <span id="year"></span> Prasad Gawande · Built with ❤
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        // small helpers
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        // form submit (demo only — replace with your backend or emailJS as needed)
+        function handleSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const msg = document.getElementById('formMsg');
+            msg.style.display = 'block';
+            msg.textContent = 'Thanks — message sent (demo). Replace this handler with your real email backend or use emailJS.';
+            form.reset();
+        }
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
